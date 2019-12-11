@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="KANOKI">
 <meta property="og:description" content="ID3分类算法是使用 信息增益 作为属性选择标准的一种决策树分类方法。检测所有属性，选择信息增益最大的属性产生决策树节点，由该属性的不同取值建立分支，再对各分支的子集递归调用该方法，建立决策树节点的分支，直到所有子集仅包含同一个类别的数据为止。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-08T15:48:36.520Z">
+<meta property="og:updated_time" content="2019-12-11T14:15:14.114Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -363,6 +363,15 @@
 <p><em>EntropyA(S)=∑ (|Si|/|S| * Entropy(Si))</em></p>
 <p>信息增益越大，说明使用属性A划分后的样本子集越纯，越有利于分类。</p>
 <p><b>伪代码</b></p>
+<p><b>构建决策树的详细过程</b></p>
+<p>①计算所有属性划分数据集S所得的信息增益值，寻找增益值最大的属性，作为根节点的最佳决策属性</p>
+<p>②为所选择的最佳决策属性的可能取值建立分支</p>
+<p>③通过计算确定最佳划分根节点的N个分支的决策属性</p>
+<p>③为分支建立子树，最后得到决策树</p>
+<p><b>缺点</b></p>
+<p>①ID3算法只能处理分类属性数据，无法处理连续性数据</p>
+<p>②ID3算法对测试属性的每个取值相应产生一个分支，且划分相应的数据样本集，可能会导致产生许多小子集。随着子集被划分得越来越小，划分过程将会由于子集规模过小，所造成得统计特征不充分而停止。</p>
+<p>③ID3算法中，由于信息增益在类别值多得属性上得计算结果大于类别值小得属性上计算结果，将导致决策树算法偏向选择具有较多分支得属性，因而可能过度拟合。</p>
 
       
     </div>
@@ -396,10 +405,6 @@
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/12/07/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
             
           </div>
 
@@ -477,7 +482,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
