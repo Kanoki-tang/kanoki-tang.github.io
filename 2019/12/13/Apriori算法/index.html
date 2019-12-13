@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="数据挖掘,关联分析,频繁项集," />
 
 
 
@@ -79,12 +79,15 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="https:&#x2F;&#x2F;kannoki-tang.github.io&#x2F;about&#x2F;index.html">
+<meta name="description" content="Apriori性质；一个频繁项集的任意子集也应是频繁项集。如果一个项集是非频繁的，则它的超集也是非频繁的，将不作为频繁项集的候选项集。Apriori算法采用逐层的方式找出频繁项集。首先找出1频繁-项集，通过迭代的方法，利用频繁(k-1)-项集生成k候选项集，扫描数据库后从候选k-项集中找出频繁k-项集。直到生成的候选项集为空时算法结束。">
+<meta name="keywords" content="数据挖掘,关联分析,频繁项集">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Apriori算法">
+<meta property="og:url" content="https:&#x2F;&#x2F;kannoki-tang.github.io&#x2F;2019&#x2F;12&#x2F;13&#x2F;Apriori%E7%AE%97%E6%B3%95&#x2F;index.html">
 <meta property="og:site_name" content="KANOKI">
+<meta property="og:description" content="Apriori性质；一个频繁项集的任意子集也应是频繁项集。如果一个项集是非频繁的，则它的超集也是非频繁的，将不作为频繁项集的候选项集。Apriori算法采用逐层的方式找出频繁项集。首先找出1频繁-项集，通过迭代的方法，利用频繁(k-1)-项集生成k候选项集，扫描数据库后从候选k-项集中找出频繁k-项集。直到生成的候选项集为空时算法结束。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-08T06:30:34.518Z">
+<meta property="og:updated_time" content="2019-12-13T14:22:50.316Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -115,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="https://kannoki-tang.github.io/about/"/>
+  <link rel="canonical" href="https://kannoki-tang.github.io/2019/12/13/Apriori算法/"/>
 
 
 
 
 
-  <title>about | KANOKI</title>
+  <title>Apriori算法 | KANOKI</title>
   
 
 
@@ -244,33 +247,184 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kannoki-tang.github.io/2019/12/13/Apriori%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kanoki">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KANOKI">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">about</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
+          <h1 class="post-title" itemprop="name headline">Apriori算法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-13T16:16:00+08:00">
+                2019-12-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-      </div>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" itemprop="url" rel="index">
+                    <span itemprop="name">数据挖掘</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>Apriori性质；一个频繁项集的任意子集也应是频繁项集。如果一个项集是非频繁的，则它的超集也是非频繁的，将不作为频繁项集的候选项集。<br>Apriori算法采用逐层的方式找出频繁项集。首先找出1频繁-项集，通过迭代的方法，利用频繁(k-1)-项集生成k候选项集，扫描数据库后从候选k-项集中找出频繁k-项集。直到生成的候选项集为空时算法结束。<br>  <a id="more"></a></p>
+<p><b>Apriori算法步骤</b></p>
+<p>①单边扫描数据集，确定每个项的支持度，得到所有频繁1-项集的集合L1。</p>
+<p>②使用上一次迭代发现的频繁(k-1)-项集，产生新的候选k-项集。其中包括连接和剪枝两步：</p>
+<p>  &lt;1&gt;连接。频繁(k-1)-项集集合中，每个项集中的元素按照字典序排序，任意两个(k-1)-项集，如果它们包含的前k-2个项相同，则连接成为一个候选k-项集，产生不重复的候选项集。</p>
+<p>  &lt;2&gt;剪枝。判断生成的候选k-项集的某个(k-1)-项子集是否为频繁项集。如果候选k-项集的某个(k-1)时不频繁的，则删除这个候选项集。</p>
+<p>③再扫描一遍数据集，对候选项的支持度进行技术。其中包括两个步骤：</p>
+<p>  &lt;1&gt;枚举每个事务包含的k-项集。</p>
+<p>  &lt;2&gt;利用事务所包含的所有k-项集对候选k-项集计数。</p>
+<p>④删去支持度技术小于阈值的所有候选项集。</p>
+<p>⑤当没有新的频繁项集产生，算法结束。</p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" rel="tag"># 数据挖掘</a>
+          
+            <a href="/tags/%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90/" rel="tag"># 关联分析</a>
+          
+            <a href="/tags/%E9%A2%91%E7%B9%81%E9%A1%B9%E9%9B%86/" rel="tag"># 频繁项集</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/08/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%AE%97%E6%B3%95/" rel="next" title="朴素贝叶斯算法">
+                <i class="fa fa-chevron-left"></i> 朴素贝叶斯算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/12/13/FP-growth%E7%AE%97%E6%B3%95/" rel="prev" title="FP-growth算法">
+                FP-growth算法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
