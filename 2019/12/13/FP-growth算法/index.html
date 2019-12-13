@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="KANOKI">
 <meta property="og:description" content="FP-growth算法使用一种被称为频繁模式树（FP-tree）的紧凑数据结构组织数据，并直接从该结构中提取频繁项集。 FP-tree是一种输入数据的压缩表示，通过逐个读入事务，并把每个事务映射到FP-tree中的一条路径来构造。不同事务具有相同项时，路径会发生重叠，路径相互重叠的越多，使用FP-tree结构获得的压缩效果越好。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-13T14:35:40.344Z">
+<meta property="og:updated_time" content="2019-12-13T16:45:59.653Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -350,6 +350,14 @@
       
         <p>FP-growth算法使用一种被称为频繁模式树（FP-tree）的紧凑数据结构组织数据，并直接从该结构中提取频繁项集。</p>
 <p>FP-tree是一种输入数据的压缩表示，通过逐个读入事务，并把每个事务映射到FP-tree中的一条路径来构造。不同事务具有相同项时，路径会发生重叠，路径相互重叠的越多，使用FP-tree结构获得的压缩效果越好。<br> <a id="more"></a></p>
+<p> <b>FP-growth算法步骤</b></p>
+<p> ①扫描数据库，找出频繁项的列表L，支持度降序。</p>
+<p> ②再次扫描数据库，利用事务中的频繁项构造FP-tree。FP-tree的根节点为null。处理每个事务时按照L中顺序，将事务中出现的频繁项添加到FP-tree中的一个分支。</p>
+<p> ③对L采用自底向上迭代方式进行挖掘。依次查找以该属性为后缀的频繁项集。根据包含该属性的记录，构造该属性的条件模式基（前缀路径），利用条件模式基构造该函数的条件FP-tree。</p>
+<p> <b>FP-tree的组成部分</b></p>
+<p> ①树包含：一个根节点、一个项目前缀子树集合、一个频繁项头表。</p>
+<p> ②项前缀子树中的每个节点由三个域构成：项目名、计数和节点链。</p>
+<p> ③频繁项头表中的每个条目由两个域组成：项目名和节点链头。</p>
 
       
     </div>
