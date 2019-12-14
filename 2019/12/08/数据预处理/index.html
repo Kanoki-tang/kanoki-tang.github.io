@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="KANOKI">
 <meta property="og:description" content="在数据挖掘前期所做的数据质量的检测和纠正">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-08T15:48:18.672Z">
+<meta property="og:updated_time" content="2019-12-14T15:45:46.550Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -350,39 +350,70 @@
       
         <p>在数据挖掘前期所做的数据质量的检测和纠正</p>
 <a id="more"></a>
-<p><b>数据清理</b><br>1）缺失值的处理方法</p>
-<p>① 忽略元组</p>
-<p>② 忽略属性列</p>
-<p>③ 人工填写缺失值</p>
-<p>④ 自行填充缺失值</p>
-<p>其中④又有三种方法：</p>
-<p>① 使用全局常量填充</p>
-<p>② 使用与给定记录属于同一类的所有样本的均值或众数填充</p>
-<p>③ 使用可能值填充，可以用回归、基于推理的工具或决策树归纳决定</p>
-<p>2）噪声数据的平滑方法</p>
-<p>① 分箱</p>
+
+<hr>
+<h1 id="数据清理"><a href="#数据清理" class="headerlink" title="数据清理"></a>数据清理</h1><h2 id="1-缺失值的处理方法"><a href="#1-缺失值的处理方法" class="headerlink" title="1. 缺失值的处理方法"></a>1. 缺失值的处理方法</h2><ul>
+<li><p>忽略元组</p>
+</li>
+<li><p>忽略属性列</p>
+</li>
+<li><p>人工填写缺失值</p>
+</li>
+<li><p>自行填充缺失值</p>
+<ul>
+<li><p>使用全局常量填充</p>
+</li>
+<li><p>使用与给定记录属于同一类的所有样本的均值或众数填充</p>
+</li>
+<li><p>使用可能值填充，可以用回归、基于推理的工具或决策树归纳决定</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-噪声数据的平滑方法"><a href="#2-噪声数据的平滑方法" class="headerlink" title="2. 噪声数据的平滑方法"></a>2. 噪声数据的平滑方法</h2><ul>
+<li><p>分箱</p>
 <p>考察周围的值来平滑 <em>有序</em> 数据的值。数据被划分到等深为n的箱中（即每箱包含n个值），再采用均值/中值/边界值平滑。</p>
-<p>② 聚类</p>
+</li>
+<li><p>聚类</p>
 <p>将类似的值组织成群或簇，离群点可以被聚类检测，删除离群点来平滑数据。</p>
-<p>③ 回归</p>
+</li>
+<li><p>回归</p>
 <p>通过回归让数据适合一个函数来平滑数据。</p>
-<p><b>数据聚合</b></p>
-<p>将多个数据源中的数据存放在一个一致的数据存储设备中。</p>
-<p><b>数据变换</b></p>
-<p>1）数据泛化</p>
-<p>2）规范化</p>
+</li>
+</ul>
+<hr>
+<h1 id="数据聚合"><a href="#数据聚合" class="headerlink" title="数据聚合"></a>数据聚合</h1><p>将多个数据源中的数据存放在一个一致的数据存储设备中。</p>
+<hr>
+<h1 id="数据变换"><a href="#数据变换" class="headerlink" title="数据变换"></a>数据变换</h1><ul>
+<li><p>数据泛化</p>
+</li>
+<li><p>规范化</p>
 <p>将原来的度量值转换为无量纲的值。给定一个属性f，以及f的n个观测值x1,x2,…,xn，常用的规范化方法有如下三种：</p>
-<p>① 最小-最大规范化</p>
+<ul>
+<li><p>最小-最大规范化</p>
 <p>做线性变换：<em>zi=（xi-min）/（max-min） * （b-a） + a </em></p>
 <p>将值转换到[a,b]，min和max分别为f的n个观测值的最小值和最大值。最常用的情况是[0,1]。</p>
-<p>② z-score规范化</p>
-<p>③ 计算规范化的度量值</p>
-<p>3）特征构造</p>
-<p>4）数据离散化</p>
-<p><b>数据归约</b></p>
-<p>1）维度规约和特征变换</p>
-<p>2）抽样</p>
-<p>3）特征选择</p>
+</li>
+</ul>
+<ul>
+<li>z-score规范化</li>
+<li>小数定标规范化</li>
+</ul>
+</li>
+<li><p>特征构造</p>
+</li>
+<li><p>数据离散化</p>
+</li>
+</ul>
+<hr>
+<h1 id="数据归约"><a href="#数据归约" class="headerlink" title="数据归约"></a>数据归约</h1><ul>
+<li><p>维度规约和特征变换</p>
+</li>
+<li><p>抽样</p>
+</li>
+<li><p>特征选择</p>
+</li>
+</ul>
 
       
     </div>
@@ -477,8 +508,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -493,7 +533,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -515,7 +555,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -538,6 +578,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据清理"><span class="nav-number">1.</span> <span class="nav-text">数据清理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-缺失值的处理方法"><span class="nav-number">1.1.</span> <span class="nav-text">1. 缺失值的处理方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-噪声数据的平滑方法"><span class="nav-number">1.2.</span> <span class="nav-text">2. 噪声数据的平滑方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据聚合"><span class="nav-number">2.</span> <span class="nav-text">数据聚合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据变换"><span class="nav-number">3.</span> <span class="nav-text">数据变换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据归约"><span class="nav-number">4.</span> <span class="nav-text">数据归约</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

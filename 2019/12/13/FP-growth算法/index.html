@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="KANOKI">
 <meta property="og:description" content="FP-growth算法使用一种被称为频繁模式树（FP-tree）的紧凑数据结构组织数据，并直接从该结构中提取频繁项集。 FP-tree是一种输入数据的压缩表示，通过逐个读入事务，并把每个事务映射到FP-tree中的一条路径来构造。不同事务具有相同项时，路径会发生重叠，路径相互重叠的越多，使用FP-tree结构获得的压缩效果越好。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-13T16:45:59.653Z">
+<meta property="og:updated_time" content="2019-12-14T15:28:34.069Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -348,16 +348,26 @@
       
 
       
-        <p>FP-growth算法使用一种被称为频繁模式树（FP-tree）的紧凑数据结构组织数据，并直接从该结构中提取频繁项集。</p>
+        <p>FP-growth算法使用一种被称为<strong>频繁模式树</strong>（FP-tree）的紧凑数据结构组织数据，并直接从该结构中提取频繁项集。</p>
 <p>FP-tree是一种输入数据的压缩表示，通过逐个读入事务，并把每个事务映射到FP-tree中的一条路径来构造。不同事务具有相同项时，路径会发生重叠，路径相互重叠的越多，使用FP-tree结构获得的压缩效果越好。<br> <a id="more"></a></p>
-<p> <b>FP-growth算法步骤</b></p>
-<p> ①扫描数据库，找出频繁项的列表L，支持度降序。</p>
-<p> ②再次扫描数据库，利用事务中的频繁项构造FP-tree。FP-tree的根节点为null。处理每个事务时按照L中顺序，将事务中出现的频繁项添加到FP-tree中的一个分支。</p>
-<p> ③对L采用自底向上迭代方式进行挖掘。依次查找以该属性为后缀的频繁项集。根据包含该属性的记录，构造该属性的条件模式基（前缀路径），利用条件模式基构造该函数的条件FP-tree。</p>
-<p> <b>FP-tree的组成部分</b></p>
-<p> ①树包含：一个根节点、一个项目前缀子树集合、一个频繁项头表。</p>
-<p> ②项前缀子树中的每个节点由三个域构成：项目名、计数和节点链。</p>
-<p> ③频繁项头表中的每个条目由两个域组成：项目名和节点链头。</p>
+<hr>
+<h1 id="FP-growth算法步骤"><a href="#FP-growth算法步骤" class="headerlink" title="FP-growth算法步骤"></a>FP-growth算法步骤</h1><ol>
+<li><p>扫描数据库，找出频繁项的列表L，支持度降序。</p>
+</li>
+<li><p>再次扫描数据库，利用事务中的频繁项构造FP-tree。FP-tree的根节点为null。处理每个事务时按照L中顺序，将事务中出现的频繁项添加到FP-tree中的一个分支。</p>
+</li>
+<li><p>对L采用自底向上迭代方式进行挖掘。依次查找以该属性为后缀的频繁项集。根据包含该属性的记录，构造该属性的<strong>条件模式基</strong>（前缀路径），利用条件模式基构造该函数的条件FP-tree。</p>
+</li>
+</ol>
+<hr>
+<h1 id="FP-tree的组成部分"><a href="#FP-tree的组成部分" class="headerlink" title="FP-tree的组成部分"></a>FP-tree的组成部分</h1><ul>
+<li><p>树包含：一个根节点、一个项目前缀子树集合、一个频繁项头表。</p>
+</li>
+<li><p>项前缀子树中的每个节点由三个域构成：项目名、计数和节点链。</p>
+</li>
+<li><p>频繁项头表中的每个条目由两个域组成：项目名和节点链头。</p>
+</li>
+</ul>
 
       
     </div>
@@ -401,6 +411,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/12/14/k-summary%E7%AE%97%E6%B3%95/" rel="prev" title="k-summary算法">
+                k-summary算法 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -452,8 +466,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -468,7 +491,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -490,7 +513,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -513,6 +536,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#FP-growth算法步骤"><span class="nav-number">1.</span> <span class="nav-text">FP-growth算法步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FP-tree的组成部分"><span class="nav-number">2.</span> <span class="nav-text">FP-tree的组成部分</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

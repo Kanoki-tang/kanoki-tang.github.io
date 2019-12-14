@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="ID3分类算法是使用 信息增益 作为属性选择标准的一种决策树分类方法。检测所有属性，选择信息增益最大的属性产生决策树节点，由该属性的不同取值建立分支，再对各分支的子集递归调用该方法，建立决策树节点的分支，直到所有子集仅包含同一个类别的数据为止。">
+<meta name="description" content="ID3分类算法是使用信息增益作为属性选择标准的一种决策树分类方法。 检测所有属性，选择信息增益最大的属性产生决策树节点，由该属性的不同取值建立分支，再对各分支的子集递归调用该方法，建立决策树节点的分支，直到所有子集仅包含同一个类别的数据为止。">
 <meta name="keywords" content="数据挖掘,分类算法,决策树">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ID3分类算法">
 <meta property="og:url" content="https:&#x2F;&#x2F;kannoki-tang.github.io&#x2F;2019&#x2F;12&#x2F;08&#x2F;ID3%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95&#x2F;index.html">
 <meta property="og:site_name" content="KANOKI">
-<meta property="og:description" content="ID3分类算法是使用 信息增益 作为属性选择标准的一种决策树分类方法。检测所有属性，选择信息增益最大的属性产生决策树节点，由该属性的不同取值建立分支，再对各分支的子集递归调用该方法，建立决策树节点的分支，直到所有子集仅包含同一个类别的数据为止。">
+<meta property="og:description" content="ID3分类算法是使用信息增益作为属性选择标准的一种决策树分类方法。 检测所有属性，选择信息增益最大的属性产生决策树节点，由该属性的不同取值建立分支，再对各分支的子集递归调用该方法，建立决策树节点的分支，直到所有子集仅包含同一个类别的数据为止。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-11T14:15:14.114Z">
+<meta property="og:updated_time" content="2019-12-14T15:40:06.007Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -348,30 +348,53 @@
       
 
       
-        <p>ID3分类算法是使用 <em>信息增益</em> 作为属性选择标准的一种决策树分类方法。<br>检测所有属性，选择信息增益最大的属性产生决策树节点，由该属性的不同取值建立分支，再对各分支的子集递归调用该方法，建立决策树节点的分支，直到所有子集仅包含同一个类别的数据为止。</p>
+        <p>ID3分类算法是使用<strong>信息增益</strong>作为属性选择标准的一种决策树分类方法。</p>
+<p>检测所有属性，选择信息增益最大的属性产生决策树节点，由该属性的不同取值建立分支，再对各分支的子集递归调用该方法，建立决策树节点的分支，直到所有子集仅包含同一个类别的数据为止。</p>
 <a id="more"></a>
-<p><b>信息熵</b></p>
-<p>信息熵用来度量一个属性的信息量。</p>
+
+<hr>
+<h1 id="信息熵"><a href="#信息熵" class="headerlink" title="信息熵"></a>信息熵</h1><p>信息熵用来度量一个属性的信息量。</p>
 <p>假定S为训练集，S的目标属性具有m个可能的类标号值，C={C1,C2,…,Cm}，假定训练集中，Ci在所有样本中出现的频率为pi（i=1,2,3,…,m)，则该训练集S关于目标属性的信息熵为：</p>
 <p><em>Entropy(S)=Entropy(p1,p2,…,pm)=-∑ pi log2(pi)</em></p>
 <p>熵越小，表示样本对目标属性的分布越纯；熵越大，表示样本对目标属性的分布越混乱。</p>
-<p>熵=0：所有样本的目标属性取值相同<br>熵=log2(m):S中不同类别的记录数相当</p>
-<p><b>信息增益</b></p>
-<p>信息增益是划分前S的熵和划分后S的熵的差值。</p>
+<h4 id="特殊情况："><a href="#特殊情况：" class="headerlink" title="特殊情况："></a>特殊情况：</h4><ul>
+<li><p>熵=0：所有样本的目标属性取值相同</p>
+</li>
+<li><p>熵=log2(m):S中不同类别的记录数相当</p>
+</li>
+</ul>
+<hr>
+<h1 id="信息增益"><a href="#信息增益" class="headerlink" title="信息增益"></a>信息增益</h1><p>信息增益是划分前S的熵和划分后S的熵的差值。</p>
 <p>假设用属性A来划分样本集S，A属性由k个不同的取值，从而将S划分为k个样本子集{S1,S2,…,Sk}，|Si|是Si中包含的样本数，|S|为样本集S中包含的样本数：</p>
 <p><em>Gain(S,A)=Entropy(S)-EntropyA(S)</em></p>
 <p><em>EntropyA(S)=∑ (|Si|/|S| * Entropy(Si))</em></p>
 <p>信息增益越大，说明使用属性A划分后的样本子集越纯，越有利于分类。</p>
-<p><b>伪代码</b></p>
-<p><b>构建决策树的详细过程</b></p>
-<p>①计算所有属性划分数据集S所得的信息增益值，寻找增益值最大的属性，作为根节点的最佳决策属性</p>
-<p>②为所选择的最佳决策属性的可能取值建立分支</p>
-<p>③通过计算确定最佳划分根节点的N个分支的决策属性</p>
-<p>③为分支建立子树，最后得到决策树</p>
-<p><b>缺点</b></p>
-<p>①ID3算法只能处理分类属性数据，无法处理连续性数据</p>
-<p>②ID3算法对测试属性的每个取值相应产生一个分支，且划分相应的数据样本集，可能会导致产生许多小子集。随着子集被划分得越来越小，划分过程将会由于子集规模过小，所造成得统计特征不充分而停止。</p>
-<p>③ID3算法中，由于信息增益在类别值多得属性上得计算结果大于类别值小得属性上计算结果，将导致决策树算法偏向选择具有较多分支得属性，因而可能过度拟合。</p>
+<hr>
+<h1 id="构建决策树的详细过程"><a href="#构建决策树的详细过程" class="headerlink" title="构建决策树的详细过程"></a>构建决策树的详细过程</h1><ol>
+<li><p>计算所有属性划分数据集S所得的信息增益值，寻找增益值最大的属性，作为根节点的最佳决策属性</p>
+</li>
+<li><p>为所选择的最佳决策属性的可能取值建立分支</p>
+</li>
+<li><p>通过计算确定最佳划分根节点的N个分支的决策属性</p>
+</li>
+<li><p>为分支建立子树，最后得到决策树</p>
+</li>
+</ol>
+<hr>
+<h1 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h1><p>函数：DT(S,F)</p>
+<p>输入：训练集数据S，训练集数据属性集合F</p>
+<p>输入：ID3决策树</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">if 样本S全部属于同一个类别C then</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  创建一个叶节点，并标记类标号为C;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  return;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">else</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  计算属性集F中每个属性的信息增益，假定信息增益值最大的属性为A;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  创建节点，取属性A为该节点的决策属性;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">  for 节点属性为A的每个可能的取值V do</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    为该节点添加一个新的分支，假设Sv为属性A取值为V的样本子集;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    if 样本Svu全部属于同一个类别C then</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">      为该分支添加一个叶节点，并标记类标号为C;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    else</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">      递归调用DT(Sv,F-&#123;A&#125;)，为该分支创建子树;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    end if</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">  end for</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">end if</span></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h1><ul>
+<li><p>ID3算法只能处理分类属性数据，无法处理连续性数据</p>
+</li>
+<li><p>ID3算法对测试属性的每个取值相应产生一个分支，且划分相应的数据样本集，可能会导致产生许多小子集。随着子集被划分得越来越小，划分过程将会由于子集规模过小，所造成得统计特征不充分而停止。</p>
+</li>
+<li><p>ID3算法中，由于信息增益在类别值多得属性上得计算结果大于类别值小得属性上计算结果，将导致决策树算法偏向选择具有较多分支得属性，因而可能过度拟合。</p>
+</li>
+</ul>
 
       
     </div>
@@ -466,8 +489,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -482,7 +514,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -504,7 +536,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -527,6 +559,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#信息熵"><span class="nav-number">1.</span> <span class="nav-text">信息熵</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特殊情况："><span class="nav-number">1.0.0.1.</span> <span class="nav-text">特殊情况：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#信息增益"><span class="nav-number">2.</span> <span class="nav-text">信息增益</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#构建决策树的详细过程"><span class="nav-number">3.</span> <span class="nav-text">构建决策树的详细过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#伪代码"><span class="nav-number">4.</span> <span class="nav-text">伪代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#缺点"><span class="nav-number">5.</span> <span class="nav-text">缺点</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

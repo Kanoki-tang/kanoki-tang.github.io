@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="KANOKI">
 <meta property="og:description" content="Apriori性质；一个频繁项集的任意子集也应是频繁项集。如果一个项集是非频繁的，则它的超集也是非频繁的，将不作为频繁项集的候选项集。Apriori算法采用逐层的方式找出频繁项集。首先找出1频繁-项集，通过迭代的方法，利用频繁(k-1)-项集生成k候选项集，扫描数据库后从候选k-项集中找出频繁k-项集。直到生成的候选项集为空时算法结束。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-13T14:22:50.316Z">
+<meta property="og:updated_time" content="2019-12-14T15:39:36.793Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -349,16 +349,32 @@
 
       
         <p>Apriori性质；一个频繁项集的任意子集也应是频繁项集。如果一个项集是非频繁的，则它的超集也是非频繁的，将不作为频繁项集的候选项集。<br>Apriori算法采用逐层的方式找出频繁项集。首先找出1频繁-项集，通过迭代的方法，利用频繁(k-1)-项集生成k候选项集，扫描数据库后从候选k-项集中找出频繁k-项集。直到生成的候选项集为空时算法结束。<br>  <a id="more"></a></p>
-<p><b>Apriori算法步骤</b></p>
-<p>①单边扫描数据集，确定每个项的支持度，得到所有频繁1-项集的集合L1。</p>
-<p>②使用上一次迭代发现的频繁(k-1)-项集，产生新的候选k-项集。其中包括连接和剪枝两步：</p>
-<p>  &lt;1&gt;连接。频繁(k-1)-项集集合中，每个项集中的元素按照字典序排序，任意两个(k-1)-项集，如果它们包含的前k-2个项相同，则连接成为一个候选k-项集，产生不重复的候选项集。</p>
-<p>  &lt;2&gt;剪枝。判断生成的候选k-项集的某个(k-1)-项子集是否为频繁项集。如果候选k-项集的某个(k-1)时不频繁的，则删除这个候选项集。</p>
-<p>③再扫描一遍数据集，对候选项的支持度进行技术。其中包括两个步骤：</p>
-<p>  &lt;1&gt;枚举每个事务包含的k-项集。</p>
-<p>  &lt;2&gt;利用事务所包含的所有k-项集对候选k-项集计数。</p>
-<p>④删去支持度技术小于阈值的所有候选项集。</p>
-<p>⑤当没有新的频繁项集产生，算法结束。</p>
+<hr>
+<h1 id="Apriori算法步骤"><a href="#Apriori算法步骤" class="headerlink" title="Apriori算法步骤"></a>Apriori算法步骤</h1><ol>
+<li><p>单边扫描数据集，确定每个项的支持度，得到所有频繁1-项集的集合L1。</p>
+</li>
+<li><p>使用上一次迭代发现的频繁(k-1)-项集，产生新的候选k-项集。其中包括连接和剪枝两步：</p>
+<ul>
+<li><p>连接。频繁(k-1)-项集集合中，每个项集中的元素按照字典序排序，任意两个(k-1)-项集，如果它们包含的前k-2个项相同，则连接成为一个候选k-项集，产生不重复的候选项集。</p>
+<ul>
+<li>剪枝。判断生成的候选k-项集的某个(k-1)-项子集是否为频繁项集。如果候选k-项集的某个(k-1)时不频繁的，则删除这个候选项集。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>再扫描一遍数据集，对候选项的支持度进行技术。其中包括两个步骤：</p>
+<ul>
+<li><p>枚举每个事务包含的k-项集。</p>
+</li>
+<li><p>利用事务所包含的所有k-项集对候选k-项集计数。</p>
+</li>
+</ul>
+</li>
+<li><p>删去支持度技术小于阈值的所有候选项集。</p>
+</li>
+<li><p>当没有新的频繁项集产生，算法结束。</p>
+</li>
+</ol>
 
       
     </div>
@@ -457,8 +473,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -473,7 +498,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -495,7 +520,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -518,6 +543,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Apriori算法步骤"><span class="nav-number">1.</span> <span class="nav-text">Apriori算法步骤</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
