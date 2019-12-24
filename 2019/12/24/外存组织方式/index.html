@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="数据挖掘," />
+  <meta name="keywords" content="操作系统,外存,文件物理结构," />
 
 
 
@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="在数据挖掘前期所做的数据质量的检测和纠正">
-<meta name="keywords" content="数据挖掘">
+<meta name="description" content="常用外存组织方式：  连续组织模式  链接组织模式  索引组织模式">
+<meta name="keywords" content="操作系统,外存,文件物理结构">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据预处理">
-<meta property="og:url" content="https:&#x2F;&#x2F;kannoki-tang.github.io&#x2F;2019&#x2F;12&#x2F;08&#x2F;%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86&#x2F;index.html">
+<meta property="og:title" content=" 外存组织方式">
+<meta property="og:url" content="https:&#x2F;&#x2F;kannoki-tang.github.io&#x2F;2019&#x2F;12&#x2F;24&#x2F;%E5%A4%96%E5%AD%98%E7%BB%84%E7%BB%87%E6%96%B9%E5%BC%8F&#x2F;index.html">
 <meta property="og:site_name" content="KANOKI">
-<meta property="og:description" content="在数据挖掘前期所做的数据质量的检测和纠正">
+<meta property="og:description" content="常用外存组织方式：  连续组织模式  链接组织模式  索引组织模式">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-14T15:45:46.550Z">
+<meta property="og:updated_time" content="2019-12-24T06:01:38.264Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="https://kannoki-tang.github.io/2019/12/08/数据预处理/"/>
+  <link rel="canonical" href="https://kannoki-tang.github.io/2019/12/24/外存组织方式/"/>
 
 
 
 
 
-  <title>数据预处理 | KANOKI</title>
+  <title> 外存组织方式 | KANOKI</title>
   
 
 
@@ -259,7 +259,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kannoki-tang.github.io/2019/12/08/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/">
+    <link itemprop="mainEntityOfPage" href="https://kannoki-tang.github.io/2019/12/24/%E5%A4%96%E5%AD%98%E7%BB%84%E7%BB%87%E6%96%B9%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kanoki">
@@ -276,7 +276,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">数据预处理</h1>
+          <h1 class="post-title" itemprop="name headline"> 外存组织方式</h1>
         
 
         <div class="post-meta">
@@ -288,8 +288,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-08T23:15:00+08:00">
-                2019-12-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-24T13:43:00+08:00">
+                2019-12-24
               </time>
             
 
@@ -311,8 +311,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" itemprop="url" rel="index">
-                    <span itemprop="name">数据挖掘</span>
+                  <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index">
+                    <span itemprop="name">操作系统</span>
                   </a>
                 </span>
 
@@ -348,72 +348,30 @@
       
 
       
-        <p>在数据挖掘前期所做的数据质量的检测和纠正</p>
+        <p>常用外存组织方式：</p>
+<ul>
+<li><p>连续组织模式</p>
+</li>
+<li><p>链接组织模式</p>
+</li>
+<li><p>索引组织模式</p>
 <a id="more"></a>
 
-<hr>
-<h1 id="数据清理"><a href="#数据清理" class="headerlink" title="数据清理"></a>数据清理</h1><h2 id="1-缺失值的处理方法"><a href="#1-缺失值的处理方法" class="headerlink" title="1. 缺失值的处理方法"></a>1. 缺失值的处理方法</h2><ul>
-<li><p>忽略元组</p>
-</li>
-<li><p>忽略属性列</p>
-</li>
-<li><p>人工填写缺失值</p>
-</li>
-<li><p>自行填充缺失值</p>
-<ul>
-<li><p>使用全局常量填充</p>
-</li>
-<li><p>使用与给定记录属于同一类的所有样本的均值或众数填充</p>
-</li>
-<li><p>使用可能值填充，可以用回归、基于推理的工具或决策树归纳决定</p>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="2-噪声数据的平滑方法"><a href="#2-噪声数据的平滑方法" class="headerlink" title="2. 噪声数据的平滑方法"></a>2. 噪声数据的平滑方法</h2><ul>
-<li><p>分箱</p>
-<p>考察周围的值来平滑 <em>有序</em> 数据的值。数据被划分到等深为n的箱中（即每箱包含n个值），再采用均值/中值/边界值平滑。</p>
-</li>
-<li><p>聚类</p>
-<p>将类似的值组织成群或簇，离群点可以被聚类检测，删除离群点来平滑数据。</p>
-</li>
-<li><p>回归</p>
-<p>通过回归让数据适合一个函数来平滑数据。</p>
 </li>
 </ul>
 <hr>
-<h1 id="数据聚合"><a href="#数据聚合" class="headerlink" title="数据聚合"></a>数据聚合</h1><p>将多个数据源中的数据存放在一个一致的数据存储设备中。</p>
+<h1 id="连续组织模式"><a href="#连续组织模式" class="headerlink" title="连续组织模式"></a>连续组织模式</h1><p> 为每一个文件分配一组相邻接的盘块。通常盘块位于一条磁道上，进行读写时不需要移动磁头。此时的物理文件称为顺序文件。</p>
+<p> 目录项的文件物理地址字段中，应记录该文件的第一个记录所在的盘块号和文件长度（以盘块为单位）。</p>
+<p> 可以利用紧凑。</p>
 <hr>
-<h1 id="数据变换"><a href="#数据变换" class="headerlink" title="数据变换"></a>数据变换</h1><ul>
-<li><p>数据泛化</p>
-</li>
-<li><p>规范化</p>
-<p>将原来的度量值转换为无量纲的值。给定一个属性f，以及f的n个观测值x1,x2,…,xn，常用的规范化方法有如下三种：</p>
-<ul>
-<li><p>最小-最大规范化</p>
-<p>做线性变换：<em>zi=（xi-min）/（max-min） * （b-a） + a </em></p>
-<p>将值转换到[a,b]，min和max分别为f的n个观测值的最小值和最大值。最常用的情况是[0,1]。</p>
-</li>
-</ul>
-<ul>
-<li>z-score规范化</li>
-<li>小数定标规范化</li>
-</ul>
-</li>
-<li><p>特征构造</p>
-</li>
-<li><p>数据离散化</p>
-</li>
-</ul>
+<h1 id="链接组织模式"><a href="#链接组织模式" class="headerlink" title="链接组织模式"></a>链接组织模式</h1><p>为文件分配多个不连续的盘块，通过每个盘块上的链接指针，将同属于一个文件的多个离散的盘块链接成一个链表。此时的物理文件称为链接文件。</p>
+<h2 id="隐式链接"><a href="#隐式链接" class="headerlink" title="隐式链接"></a>隐式链接</h2><p>在文件目录的每个目录项中，都须含有指向链接文件第一个盘块和最后一个盘块的指针，</p>
+<p>隐式链接只适合于顺序访问，对随机访问极其低效，读第i个盘块时必须从第一个盘块读起。</p>
+<h2 id="显式链接"><a href="#显式链接" class="headerlink" title="显式链接"></a>显式链接</h2><p>把用于链接文件各物理块的指针，显式地存放在内存的一张<strong>文件分配表FAT</strong>中，该表在整个磁盘中仅设置一张。表的序号是物理盘块号，每个表项中存放连接指针，即下一个盘块号，均作为文件地址被填入相应文件地FCB地物理地址字段中。</p>
+<p>FAT引入卷的概念，一个物理磁盘可以划分为多个卷，一个卷可以由多个物理磁盘组成。</p>
 <hr>
-<h1 id="数据归约"><a href="#数据归约" class="headerlink" title="数据归约"></a>数据归约</h1><ul>
-<li><p>维度规约和特征变换</p>
-</li>
-<li><p>抽样</p>
-</li>
-<li><p>特征选择</p>
-</li>
-</ul>
+<h1 id="索引组织方式"><a href="#索引组织方式" class="headerlink" title="索引组织方式"></a>索引组织方式</h1><p>为每个文件分配一个索引块（表），把分配给该文件的所有盘块号都记录在该索引块中，在建立文件时，只须在为之建立的目录项中填上指向该索引块的指针。</p>
+<p>索引组织方式支持直接访问。可建立多级组织索引方式。</p>
 
       
     </div>
@@ -431,7 +389,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" rel="tag"># 数据挖掘</a>
+            <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag"># 操作系统</a>
+          
+            <a href="/tags/%E5%A4%96%E5%AD%98/" rel="tag"># 外存</a>
+          
+            <a href="/tags/%E6%96%87%E4%BB%B6%E7%89%A9%E7%90%86%E7%BB%93%E6%9E%84/" rel="tag"># 文件物理结构</a>
           
         </div>
       
@@ -444,8 +406,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/12/08/ID3%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/" rel="next" title="ID3分类算法">
-                <i class="fa fa-chevron-left"></i> ID3分类算法
+              <a href="/2019/12/14/k-summary%E7%AE%97%E6%B3%95/" rel="next" title="k-summary算法">
+                <i class="fa fa-chevron-left"></i> k-summary算法
               </a>
             
           </div>
@@ -453,10 +415,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/12/08/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%AE%97%E6%B3%95/" rel="prev" title="朴素贝叶斯算法">
-                朴素贝叶斯算法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -588,7 +546,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据清理"><span class="nav-number">1.</span> <span class="nav-text">数据清理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-缺失值的处理方法"><span class="nav-number">1.1.</span> <span class="nav-text">1. 缺失值的处理方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-噪声数据的平滑方法"><span class="nav-number">1.2.</span> <span class="nav-text">2. 噪声数据的平滑方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据聚合"><span class="nav-number">2.</span> <span class="nav-text">数据聚合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据变换"><span class="nav-number">3.</span> <span class="nav-text">数据变换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据归约"><span class="nav-number">4.</span> <span class="nav-text">数据归约</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#连续组织模式"><span class="nav-number">1.</span> <span class="nav-text">连续组织模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#链接组织模式"><span class="nav-number">2.</span> <span class="nav-text">链接组织模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#隐式链接"><span class="nav-number">2.1.</span> <span class="nav-text">隐式链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#显式链接"><span class="nav-number">2.2.</span> <span class="nav-text">显式链接</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#索引组织方式"><span class="nav-number">3.</span> <span class="nav-text">索引组织方式</span></a></li></ol></div>
             
 
           </div>
